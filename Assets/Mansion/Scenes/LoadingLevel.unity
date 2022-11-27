@@ -300,6 +300,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -315,6 +316,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: _SCENELOADER
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021880972353244024, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
+        type: 3}
+      propertyPath: SceneInfos.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021880972353244024, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
+        type: 3}
+      propertyPath: SceneInfos.Array.data[5].LevelName
+      value: Mansion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021880972353244024, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
+        type: 3}
+      propertyPath: SceneInfos.Array.data[5].Background
+      value: 
+      objectReference: {fileID: 21300000, guid: 40a6c6ce60a96a54691141e982489bd8,
+        type: 3}
+    - target: {fileID: 3021880972353244024, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
+        type: 3}
+      propertyPath: SceneInfos.Array.data[5].SceneBuildName
+      value: MainGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021880972353244024, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
+        type: 3}
+      propertyPath: SceneInfos.Array.data[5].LevelDescription
+      value: Take care of the family Smith's child
       objectReference: {fileID: 0}
     - target: {fileID: 5368730163172809352, guid: b1aa73eb19c9acd41a7a3265a54a67f2,
         type: 3}

@@ -28644,7 +28644,7 @@ MonoBehaviour:
   SelectFirstSave: 1
   isMainMenu: 1
   setStartNewGame: 1
-  NewGameBuildName: TheHouse Demo
+  NewGameBuildName: MainGame
   SaveDeleteButton: {fileID: 0}
   ContinueButton: {fileID: 183870691}
   NewGameButton: {fileID: 1228977602}
