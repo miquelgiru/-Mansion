@@ -344,6 +344,9 @@ namespace HFPS.Player
             {
                 DropObject();
             }
+
+            objectHeld.SendMessage("OnRigidbodyDragHold", SendMessageOptions.DontRequireReceiver);
+
         }
 
         public bool CheckHold()

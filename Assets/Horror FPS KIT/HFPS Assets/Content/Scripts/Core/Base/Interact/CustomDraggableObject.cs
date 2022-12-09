@@ -17,7 +17,7 @@ namespace HFPS.Systems
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
     public class CustomDraggableObject : DraggableObject
     {
-
+        [SerializeField] bool customRotationOnGrab = false;
 
         private void Start()
         {
@@ -26,8 +26,11 @@ namespace HFPS.Systems
             calculateDensity = false;
         }
 
-    }
 
+        public override void OnRigidbodyDragHold() {
 
-    
+            if (customRotationOnGrab)
+                transform.LookAt(2 * Camera.main.transform.position - transform.position);
+        }
+    }   
 }

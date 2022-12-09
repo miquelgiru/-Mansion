@@ -190,6 +190,8 @@ namespace HFPS.Systems
             }
         }
 
+        public virtual void OnRigidbodyDragHold() {}
+
         public virtual void OnRigidbodyRelease()
         {
             isPlayedOnce = false;
