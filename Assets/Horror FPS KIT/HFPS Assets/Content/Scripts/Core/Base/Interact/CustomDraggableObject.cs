@@ -19,6 +19,16 @@ namespace HFPS.Systems
     {
         [SerializeField] bool customRotationOnGrab = false;
 
+        [Header("Place Object")]
+        [SerializeField] bool canBePlaced = false;
+        [SerializeField] Transform[] placeholders = null;
+        [SerializeField] Vector3 placedPos;
+        [SerializeField] Vector3 placedRot;
+
+        bool hasBeenGrabbed = false;
+        [SerializeField] Collider itemCollider;
+        [SerializeField] Rigidbody itemRigidbody;
+
         private void Start()
         {
             enableWaterBuoyancy = false;
@@ -31,6 +41,31 @@ namespace HFPS.Systems
 
             if (customRotationOnGrab)
                 transform.LookAt(2 * Camera.main.transform.position - transform.position);
+        }
+
+        public override void OnRigidbodyRelease()
+        {
+            base.OnRigidbodyRelease();
+            hasBeenGrabbed = true;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(!isGrabbed && canBePlaced && hasBeenGrabbed)
+            {
+
+                foreach(Transform t in placeholders)
+                {
+                    if (collision.transform == t)
+                    {
+                        hasBeenGrabbed = false;
+                        transform.position = placedPos;
+                        transform.rotation = Quaternion.Euler(placedRot);
+                        itemCollider.enabled = false;
+                        itemRigidbody.isKinematic = true;
+                    }
+                }             
+            }
         }
     }   
 }
