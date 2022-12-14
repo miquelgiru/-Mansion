@@ -6,6 +6,7 @@
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using WaterBuoyancy;
 using WaterBuoyancy.Collections;
 
@@ -28,6 +29,9 @@ namespace HFPS.Systems
         bool hasBeenGrabbed = false;
         [SerializeField] Collider itemCollider;
         [SerializeField] Rigidbody itemRigidbody;
+
+        public UnityEvent OnDragEnter;
+        public UnityEvent OnDragExit;
 
         private void Start()
         {
@@ -63,6 +67,7 @@ namespace HFPS.Systems
                         transform.rotation = Quaternion.Euler(placedRot);
                         itemCollider.enabled = false;
                         itemRigidbody.isKinematic = true;
+                        collision.gameObject.GetComponent<ToysManager>().ToyPlaced(this);
                     }
                 }             
             }
