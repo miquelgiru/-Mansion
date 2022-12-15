@@ -56,11 +56,11 @@ public class Room : MonoBehaviour
         }
     }
 
-    private ItemPlaceHolder GetRandomPlaceHolder()  //Warning: can cause infinite loop if all placeholders are filled
+    private ItemPlaceHolder GetRandomPlaceHolder()
     {
         if(placeHolders.Count > 0)
         {
-            int index = Random.Range(0, placeHolders.Count - 1);
+            int index = Random.Range(0, placeHolders.Count);
             if (placeHolders[index].empty)
                 return placeHolders[index];
             else
@@ -68,6 +68,14 @@ public class Room : MonoBehaviour
         }
 
         return null;
+    }
+
+    public bool HasEmptyPlaceHolders()
+    {
+        foreach (var ph in placeHolders)
+            if (ph.empty)
+                return true;
+        return false;
     }
 
     #endregion

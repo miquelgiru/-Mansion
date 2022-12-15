@@ -22,13 +22,13 @@ namespace HFPS.Systems
 
         [Header("Place Object")]
         [SerializeField] bool canBePlaced = false;
-        [SerializeField] Transform[] placeholders = null;
-        [SerializeField] Vector3 placedPos;
-        [SerializeField] Vector3 placedRot;
+        [SerializeField] protected Transform[] exclusiveplaceHolders = null;
+        [SerializeField] protected Vector3 placedPos;
+        [SerializeField] protected Vector3 placedRot;
 
-        bool hasBeenGrabbed = false;
-        [SerializeField] Collider itemCollider;
-        [SerializeField] Rigidbody itemRigidbody;
+        protected bool hasBeenGrabbed = false;
+        [SerializeField] protected Collider itemCollider;
+        [SerializeField] protected Rigidbody itemRigidbody;
 
         public UnityEvent OnDragEnter;
         public UnityEvent OnDragExit;
@@ -53,12 +53,12 @@ namespace HFPS.Systems
             hasBeenGrabbed = true;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        protected virtual void OnCollisionEnter(Collision collision)
         {
             if(!isGrabbed && canBePlaced && hasBeenGrabbed)
             {
 
-                foreach(Transform t in placeholders)
+                foreach(Transform t in exclusiveplaceHolders)
                 {
                     if (collision.transform == t)
                     {
@@ -67,7 +67,6 @@ namespace HFPS.Systems
                         transform.rotation = Quaternion.Euler(placedRot);
                         itemCollider.enabled = false;
                         itemRigidbody.isKinematic = true;
-                        collision.gameObject.GetComponent<ToysManager>().ToyPlaced(this);
                     }
                 }             
             }

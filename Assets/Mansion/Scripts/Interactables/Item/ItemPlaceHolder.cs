@@ -10,7 +10,7 @@ public class ItemPlaceHolder
     public string name;
     public Transform Holder;
     public Vector3 Rotation;
-    [HideInInspector] public bool empty;
+    public bool empty;
 
     public UnityAction OnItemRemoved;
 }
