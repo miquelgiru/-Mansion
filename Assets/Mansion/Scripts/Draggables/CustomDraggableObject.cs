@@ -51,6 +51,7 @@ namespace HFPS.Systems
         {
             base.OnRigidbodyRelease();
             hasBeenGrabbed = true;
+            itemRigidbody.freezeRotation = false;
         }
 
         protected virtual void OnCollisionEnter(Collision collision)
