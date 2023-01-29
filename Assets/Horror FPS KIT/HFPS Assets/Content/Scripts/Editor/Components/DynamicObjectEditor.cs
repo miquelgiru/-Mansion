@@ -69,6 +69,11 @@ namespace HFPS.Editors
         public SerializedProperty sp_LeverUpSound;
         #endregion
 
+        #region Switcher
+        public SerializedProperty sp_lights;
+        public SerializedProperty sp_start;
+        #endregion
+
         void OnEnable()
         {
             sp_dynamicType = serializedObject.FindProperty("dynamicType");
@@ -111,6 +116,8 @@ namespace HFPS.Editors
             sp_UnlockSound = serializedObject.FindProperty("UnlockSound");
             sp_LeverUpSound = serializedObject.FindProperty("LeverUpSound");
             sp_DebugAngle = serializedObject.FindProperty("DebugAngle");
+            sp_lights = serializedObject.FindProperty("switcherLights");
+            sp_start = serializedObject.FindProperty("switcherStart");
         }
 
         public override void OnInspectorGUI()
@@ -314,6 +321,13 @@ namespace HFPS.Editors
                 EditorGUILayout.PropertyField(sp_InteractPos, new GUIContent("Interact Position"));
                 EditorGUILayout.PropertyField(sp_moveWithX, new GUIContent("Move With X"));
                 EditorGUILayout.PropertyField(sp_reverseMove, new GUIContent("Reverse Move"));
+            }
+            else if(dynamicType == Type_Dynamic.Switcher)
+            {
+                DrawTitle("Switcher Properties");
+
+                EditorGUILayout.PropertyField(sp_lights, new GUIContent("Switcher Lights"));
+                EditorGUILayout.PropertyField(sp_start, new GUIContent("Starting state"));
             }
 
             /*

@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
   m_LocalPosition: {x: 0, y: -0.085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7909047911935271134}
   m_RootOrder: 0
@@ -91,6 +92,7 @@ Light:
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 13}
   m_UseBoundingSphereOverride: 1
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &8643276124890336455
@@ -120,7 +122,7 @@ GameObject:
   - component: {fileID: 7909047911935271134}
   - component: {fileID: 6515950793432854395}
   - component: {fileID: 9045965769852951473}
-  - component: {fileID: 7658419894774335283}
+  - component: {fileID: 2400724749837651240}
   m_Layer: 0
   m_Name: Lamp_ceiling_fluorescent
   m_TagString: Untagged
@@ -138,6 +140,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1462345404}
   m_Father: {fileID: 0}
@@ -162,10 +165,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -190,16 +195,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7658419894774335283
-BoxCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2400724749837651240
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388513082366114404}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.43663356, y: 0.057924084, z: 0.43663356}
-  m_Center: {x: 0, y: -0.030090466, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b94e8f51d1b9014987fea04b39e2846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchedOnMaterial: {fileID: 2100000, guid: f4944201cb28bc04d9a8a4b010128b6d, type: 2}
+  switchedOfMaterial: {fileID: 2100000, guid: 77af3d75c0d3742489c87c7ba03a54c0, type: 2}
+  renderers:
+  - {fileID: 9045965769852951473}
+  lights:
+  - {fileID: 1462345406}

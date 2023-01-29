@@ -23,7 +23,8 @@ namespace HFPS.Systems
         Drawer,
         Lever,
         Valve,
-        MovableInteract
+        MovableInteract,
+        Switcher
     }
 
     public enum Type_Use
@@ -127,6 +128,12 @@ namespace HFPS.Systems
 
         private bool turnSound;
         private bool valveInvoked;
+        #endregion
+
+        #region Switcher
+        public LightHandler[] switcherLights;
+        public bool switcherStart;
+        private bool switcherOn;
         #endregion
 
         #region Sounds
@@ -263,6 +270,15 @@ namespace HFPS.Systems
         void LateStart()
         {
             if (useSR) { isOpened = true; transform.localEulerAngles = startingRotation; }
+            if (dynamicType == Type_Dynamic.Switcher)
+            {
+                foreach(var h in switcherLights)
+                {
+                    h.SwitchLight(switcherStart);
+                }
+                switcherOn = switcherStart;
+            }
+
             load = false;
         }
 
@@ -654,6 +670,16 @@ namespace HFPS.Systems
                         Hold = lockOnUp;
                     }
                 }
+            }
+
+            if (dynamicType == Type_Dynamic.Switcher)
+            {
+                switcherOn = !switcherOn;
+                foreach (var h in switcherLights)
+                {
+                    h.SwitchLight(switcherOn);
+                }
+
             }
         }
 

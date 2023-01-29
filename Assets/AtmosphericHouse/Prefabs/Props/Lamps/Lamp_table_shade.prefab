@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0002670288, y: 0.2912656, z: -5.684342e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7209338254399149262}
   m_RootOrder: 0
@@ -52,10 +53,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4485489361027578681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121,6 +125,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0.438, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7209338254399149262}
   m_RootOrder: 1
@@ -184,6 +189,7 @@ Light:
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 1.167e-41, z: 0, w: 13.4375}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.4
   m_ShadowAngle: 0
 --- !u!114 &237471467747425602
@@ -213,7 +219,7 @@ GameObject:
   - component: {fileID: 7209338254399149262}
   - component: {fileID: 6026781016861416299}
   - component: {fileID: 8378835157243096993}
-  - component: {fileID: 4267013914266880987}
+  - component: {fileID: 2610088516799965966}
   m_Layer: 0
   m_Name: Lamp_table_shade
   m_TagString: Untagged
@@ -231,6 +237,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8907711444433645141}
   - {fileID: 7171436565399811737}
@@ -256,10 +263,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -284,16 +293,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4267013914266880987
-BoxCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2610088516799965966
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8018490217846066804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.17904755, y: 0.36124387, z: 0.17904755}
-  m_Center: {x: 0, y: 0.1805747, z: 0.000000018626451}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b94e8f51d1b9014987fea04b39e2846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchedOnMaterial: {fileID: 2100000, guid: 140029972682ed14f9ac6bd62e290260, type: 2}
+  switchedOfMaterial: {fileID: 2100000, guid: f00ec954ae55db345bb32e9599619a05, type: 2}
+  renderers:
+  - {fileID: 8378835157243096993}
+  - {fileID: 1490007755801584512}
+  lights:
+  - {fileID: 7171436565399811739}

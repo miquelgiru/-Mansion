@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
   m_LocalPosition: {x: -0.003000021, y: -0.7833, z: -0.001999814}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5497694613177103121}
   m_RootOrder: 0
@@ -91,6 +92,7 @@ Light:
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 13}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.3
   m_ShadowAngle: 0
 --- !u!114 &8196490970608563921
@@ -120,9 +122,7 @@ GameObject:
   - component: {fileID: 5497694613177103121}
   - component: {fileID: 8927374204361309364}
   - component: {fileID: 6629457822069295230}
-  - component: {fileID: 5458650142272034046}
-  - component: {fileID: 5458650142272034041}
-  - component: {fileID: 5458650142272034040}
+  - component: {fileID: 7257941578203980184}
   m_Layer: 0
   m_Name: Lamp_ceiling_cone_A
   m_TagString: Untagged
@@ -140,6 +140,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9218531978594689532}
   m_Father: {fileID: 0}
@@ -164,10 +165,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -192,42 +195,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5458650142272034046
-BoxCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7257941578203980184
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5116208697031240107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.1, z: 0.33}
-  m_Center: {x: 0.000007018447, y: -0.73, z: -0.000000037252903}
---- !u!65 &5458650142272034041
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5116208697031240107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.15, z: 0.1}
-  m_Center: {x: 0.000007018447, y: -0.63, z: -0.000000037252903}
---- !u!65 &5458650142272034040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5116208697031240107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.74, z: 0.01}
-  m_Center: {x: 0.000007018447, y: -0.37, z: -0.000000037252903}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b94e8f51d1b9014987fea04b39e2846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchedOnMaterial: {fileID: 2100000, guid: f4944201cb28bc04d9a8a4b010128b6d, type: 2}
+  switchedOfMaterial: {fileID: 2100000, guid: 77af3d75c0d3742489c87c7ba03a54c0, type: 2}
+  renderers:
+  - {fileID: 6629457822069295230}
+  lights:
+  - {fileID: 8046207664850546398}

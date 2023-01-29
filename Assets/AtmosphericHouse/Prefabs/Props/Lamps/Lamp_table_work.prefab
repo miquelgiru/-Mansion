@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3131200924053588975}
   - component: {fileID: 2079424100649518154}
   - component: {fileID: 4269252442615001216}
-  - component: {fileID: 3242305703799139337}
-  - component: {fileID: 3242305703799139338}
+  - component: {fileID: 3811360873823261775}
   m_Layer: 0
   m_Name: Lamp_table_work
   m_TagString: Untagged
@@ -30,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3021066076219579888}
   m_Father: {fileID: 0}
@@ -54,10 +54,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,32 +84,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3242305703799139337
-BoxCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3811360873823261775
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2323736504731865429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.15, z: 0.15}
-  m_Center: {x: -0.06, y: 0.37, z: -0.000000003725291}
---- !u!65 &3242305703799139338
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2323736504731865429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.05, z: 0.14}
-  m_Center: {x: -0.0027077205, y: 0.02, z: -0.000000003725291}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b94e8f51d1b9014987fea04b39e2846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchedOnMaterial: {fileID: 2100000, guid: f82ef95d6c479a14f9abaff6e69551f3, type: 2}
+  switchedOfMaterial: {fileID: 2100000, guid: 8bd761df576e0af4893f0e5f8e554f46, type: 2}
+  renderers:
+  - {fileID: 4269252442615001216}
+  lights:
+  - {fileID: 1271585315150620765}
 --- !u!1 &4979580237882031724
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +131,7 @@ Transform:
   m_LocalRotation: {x: -0.27059805, y: -0.6532815, z: 0.6532815, w: 0.27059805}
   m_LocalPosition: {x: -0.098, y: 0.34, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3131200924053588975}
   m_RootOrder: 0
@@ -199,6 +195,7 @@ Light:
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 13}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.05
   m_ShadowAngle: 0
 --- !u!114 &6118176160618276924
