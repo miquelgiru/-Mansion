@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6927334388182629786}
   - component: {fileID: 5171859316527450448}
   - component: {fileID: 1542152027847623873}
-  m_Layer: 0
+  - component: {fileID: 1272722541}
+  m_Layer: 9
   m_Name: Light_switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,14 +54,16 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5dd43fb3fc6b5e547ae39f8ce5e5f5db, type: 2}
+  - {fileID: 2100000, guid: 5510d403a0fb7f04c8f2903431d7118b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1542152027847623873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91,5 +96,76 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07962629, y: 0.1333642, z: 0.012506989}
-  m_Center: {x: 0, y: 0, z: -0.008792152}
+  m_Size: {x: 0.07962629, y: 0.1333642, z: 0.043607235}
+  m_Center: {x: -9.789266e-18, y: 0, z: 0.006757971}
+--- !u!114 &1272722541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685275706429433989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebeea973c9b1c584e967067915b4c2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicType: 5
+  useType: 0
+  interactType: 1
+  keyType: 0
+  m_Animation: {fileID: 0}
+  IgnoreColliders: []
+  InteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  DisabledEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  customText: 
+  customTextKey: 
+  keyID: 0
+  useAnim: 
+  backUseAnim: 
+  mouseInput: 0
+  mouseSmoothing: 0
+  useJammedPlanks: 0
+  Planks: []
+  knobAnim: 
+  useSR: 0
+  startingRotation: {x: 0, y: 0, z: 0}
+  doorStopSpeed: 10
+  isOpened: 0
+  toPlayerAngle: 0
+  moveWithX: 0
+  reverseMove: 0
+  drawerDragSounds: 0
+  InteractPos: 0
+  drawerDragPlay: 0.2
+  minMaxMove: {x: 0, y: 0}
+  stopAngle: 0
+  lockOnUp: 0
+  isUp: 0
+  valveTurnSounds: []
+  valveSoundAfter: 0
+  valveTurnSpeed: 0
+  valveTurnTime: 0
+  turnAxis: 0
+  switcherLights:
+  - {fileID: 0}
+  - {fileID: 0}
+  switcherStart: 1
+  m_Volume: 1
+  Open: {fileID: 0}
+  Close: {fileID: 0}
+  LockedTry: {fileID: 0}
+  UnlockSound: {fileID: 0}
+  LeverUpSound: {fileID: 0}
+  DebugAngle: 0
+  rotateValue: 0
+  isHolding: 0
+  Hold: 0
+  hasKey: 0
+  isLocked: 0
+  isInvoked: 0
+  Angle: 0

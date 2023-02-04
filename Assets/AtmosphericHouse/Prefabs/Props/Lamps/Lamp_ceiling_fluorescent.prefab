@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462345403}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: 0, y: -0.085, z: 0}
+  m_LocalPosition: {x: 0, y: -0.155, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,16 +42,16 @@ Light:
   m_GameObject: {fileID: 1462345403}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 3
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9254902, g: 0.9137255, b: 0.83137256, a: 1}
-  m_Intensity: 6
-  m_Range: 9
+  m_Intensity: 1
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4944201cb28bc04d9a8a4b010128b6d, type: 2}
+  - {fileID: 2100000, guid: c083e8237e88e5a4b98273cefa6dd989, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b94e8f51d1b9014987fea04b39e2846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchedOnMaterial: {fileID: 2100000, guid: f4944201cb28bc04d9a8a4b010128b6d, type: 2}
-  switchedOfMaterial: {fileID: 2100000, guid: 77af3d75c0d3742489c87c7ba03a54c0, type: 2}
+  switchedOnMaterial: {fileID: 2100000, guid: c083e8237e88e5a4b98273cefa6dd989, type: 2}
+  switchedOfMaterial: {fileID: 2100000, guid: 80adb04f45226564a91790904c8d8885, type: 2}
   renderers:
   - {fileID: 9045965769852951473}
   lights:
