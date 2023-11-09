@@ -35,8 +35,7 @@ namespace HFPS.Systems
         public string customText;
         public string customTextKey;
 
-        [InventorySelector]
-        public int keyID;
+        //[InventorySelector]
 
         #endregion
 
@@ -65,6 +64,7 @@ namespace HFPS.Systems
 
         public bool hasKey;
         public bool isLocked;
+        public string keyID;
 
         private bool onceUnlock;
 
