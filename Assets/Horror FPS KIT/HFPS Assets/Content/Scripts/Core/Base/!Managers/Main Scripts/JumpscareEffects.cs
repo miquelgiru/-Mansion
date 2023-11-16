@@ -20,6 +20,7 @@ namespace HFPS.Player
         private Vignette vignette;
         private ItemSwitcher itemSwitcher;
         private AudioSource PlayerBreath;
+        [SerializeField] private AudioClip ScareBreathClip;
 
         [Header("Speed Settings")]
         public float scareEffectSpeed;
@@ -34,6 +35,13 @@ namespace HFPS.Player
 
         private float chromaticMax;
         private float vigneteMax;
+
+        public static JumpscareEffects Instance;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         void Start()
         {
@@ -107,7 +115,7 @@ namespace HFPS.Player
         /// <summary>
         /// Apply Scare and Settings
         /// </summary>
-        public void Scare(CameraShakeInstance shakeInstance, float chromaticAmount, float vigneteAmount, float scaredBreath, float effectsTime = 5f, AudioClip scaredBreathSound = null)
+        public void Scare(CameraShakeInstance shakeInstance, float chromaticAmount, float vigneteAmount, float scaredBreath, float effectsTime = 5f, AudioClip scaredBreathSound = null, bool playerfall = false)
         {
             CameraShaker.Instance.Shake(shakeInstance);
 
@@ -141,6 +149,16 @@ namespace HFPS.Player
             PlayerBreath.Play();
             yield return new WaitForSeconds(time);
             isFeelingBetter = true;
+        }
+
+        public static void GenericJumpScare(float chromaticAmount, float vigneteAmount, float scaredBreath, float effectsTime)
+        {
+            Instance.Scare(CameraShakePresets.Scare, chromaticAmount, vigneteAmount, scaredBreath, effectsTime, Instance.ScareBreathClip);
+        }
+
+        public static void GenericHeavyJumpScare()
+        {
+            Instance.Scare(CameraShakePresets.Scare, 0.8f, 0.3f, 10f, 5f, Instance.ScareBreathClip);
         }
     }
 }

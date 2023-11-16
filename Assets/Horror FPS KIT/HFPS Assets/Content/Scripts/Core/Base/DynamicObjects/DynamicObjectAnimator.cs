@@ -20,10 +20,12 @@ namespace HFPS.Systems
     public class DynamicObjectAnimator : MonoBehaviour, ISaveable
     {
         private readonly RandomHelper rand = new RandomHelper();
+        private Inventory inventory;
 
         #region Enums
         public Type_Dynamic dynamicType = Type_Dynamic.Door;
         public Type_Use useType = Type_Use.Normal;
+        public Type_Key keyType = Type_Key.Script;
         #endregion
 
         #region GenericSettings
@@ -64,7 +66,8 @@ namespace HFPS.Systems
 
         public bool hasKey;
         public bool isLocked;
-        public string keyID;
+        [InventorySelector]
+        public int keyID;
 
         private bool onceUnlock;
 
@@ -121,7 +124,7 @@ namespace HFPS.Systems
                     Physics.IgnoreCollision(GetComponent<Collider>(), IgnoreColliders[i]);
                 }
             }
-
+            inventory = Inventory.Instance;
         }
 
         void Start()
@@ -173,6 +176,10 @@ namespace HFPS.Systems
                  
                 }
             }
+
+            var action = GetComponent<TriggerAction>();
+            if (action != null) 
+                action.OnTriggerAction();
         }
 
         private void TryUnlock()
@@ -206,7 +213,20 @@ namespace HFPS.Systems
 
         public bool CheckHasKey()
         {
-            return hasKey;
+            if (keyType == Type_Key.Inventory)
+            {
+                if (inventory)
+                {
+                    hasKey = inventory.CheckItemInventory(keyID);
+                    return hasKey;
+                }
+            }
+            else if (hasKey)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool CanLockType()
