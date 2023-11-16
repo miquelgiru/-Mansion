@@ -144,13 +144,13 @@ namespace HFPS.Systems
 
         void Update()
         {
-            if (CanLockType())
-            {
-                if (!isLocked)
-                {
-                    useType = Type_Use.Normal;
-                }
-            }
+            //if (CanLockType())
+            //{
+            //    if (!isLocked && useType != Type_Use.Jammed)
+            //    {
+            //        useType = Type_Use.Normal;
+            //    }
+            //}
         }
 
         public void UseObject()
@@ -165,6 +165,11 @@ namespace HFPS.Systems
                     }
 
                     TryUnlock();
+                }
+                else
+                {
+                    if(isLocked)
+                        AudioSource.PlayClipAtPoint(LockedTry, transform.position, m_Volume);
                 }
             }
 

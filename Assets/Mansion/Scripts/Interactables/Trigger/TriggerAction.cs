@@ -1,5 +1,6 @@
 using HFPS.Player;
 using HFPS.Systems;
+using HFPS.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class ActionData
 
 public class TriggerAction : MonoBehaviour
 {
-    public enum ActionType { ACTIVATE_OBJECT, DEACTIVATE_OBJECT, JUMP_SCARE, FADE_IN, FADE_OUT}
+    public enum ActionType { ACTIVATE_OBJECT, DEACTIVATE_OBJECT, JUMP_SCARE, FADE_IN, FADE_OUT, LOCKDOOR, UNLOCKDOOR}
 
     [SerializeField] private ActionData[] actions;
     public bool RemoveComponentAfterTrigger;
@@ -47,14 +48,17 @@ public class TriggerAction : MonoBehaviour
                 JumpscareEffects.GenericJumpScare(0.8f, 0.3f, 10f, 8f);
                 break;
             case ActionType.FADE_IN:
-                CameraFadeManager.Instance.FadeToBlack();
+                UIFadePanel.Instance.FadeIn(true);
                 break;
             case ActionType.ACTIVATE_OBJECT:
                 if (action.asociatedGO != null)
                     action.asociatedGO.SetActive(true);
                 break;
             case ActionType.FADE_OUT:
-                CameraFadeManager.Instance.FadeToClear();
+                UIFadePanel.Instance.FadeOut();
+                break;
+            case ActionType.LOCKDOOR:
+                action.asociatedGO.GetComponent<DynamicObjectAnimator>().isLocked = true;
                 break;
         }
 

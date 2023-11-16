@@ -155,10 +155,5 @@ namespace HFPS.Player
         {
             Instance.Scare(CameraShakePresets.Scare, chromaticAmount, vigneteAmount, scaredBreath, effectsTime, Instance.ScareBreathClip);
         }
-
-        public static void GenericHeavyJumpScare()
-        {
-            Instance.Scare(CameraShakePresets.Scare, 0.8f, 0.3f, 10f, 5f, Instance.ScareBreathClip);
-        }
     }
 }

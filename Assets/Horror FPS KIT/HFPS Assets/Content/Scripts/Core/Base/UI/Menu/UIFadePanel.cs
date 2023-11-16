@@ -16,8 +16,11 @@ namespace HFPS.UI
         public bool IsFadedIn => fader.IsFadedIn;
         public bool IsFadedOut => fader.IsFadedOut;
 
+        public static UIFadePanel Instance;
+
         private void Awake()
         {
+            Instance = this;
             FadeImage.raycastTarget = false;
         }
 
