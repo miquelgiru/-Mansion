@@ -19,6 +19,7 @@ namespace HFPS.Player
         private DelayEffect delay;
         private ItemSwitcher itemSwitcher;
         private ScriptManager scriptManager;
+        private bool disableOtherInteraction = false;
 
         [Header("Main")]
         public LayerMask CullLayers;
@@ -104,8 +105,8 @@ namespace HFPS.Player
 
         void Update()
         {
-            gameManager.isHeld = objectHeld != false;
-            interact.isHeld = objectHeld != false;
+            gameManager.isHeld = disableOtherInteraction ? objectHeld != false : false;
+            interact.isHeld = disableOtherInteraction ? objectHeld != false : false;
 
             if (InputHandler.InputIsInitialized && !gameManager.isPaused && !gameManager.isInventoryShown)
             {
@@ -223,6 +224,7 @@ namespace HFPS.Player
             }
 
             objectHeld = objectRaycast;
+            disableOtherInteraction = heldDraggable.disableOtherInteraction;
 
             if (enableObjectPull && heldDraggable)
             {
@@ -283,7 +285,7 @@ namespace HFPS.Player
             }
 
             itemSwitcher.FreeHands(dragHideWeapon);
-            gameManager.ShowGrabSprites();
+            gameManager.ShowGrabSprites(heldDraggable.rotateOnDrag, heldDraggable.throwOnDrag);
             gameManager.isGrabbed = true;
             delay.isEnabled = false;
             pfunc.zoomEnabled = false;
@@ -303,7 +305,7 @@ namespace HFPS.Player
 
         void HoldObject()
         {
-            interact.CrosshairVisible(false);
+            interact.CrosshairVisible(heldDraggable.disableOtherInteraction ? false : true);
             gameManager.HideSprites(0);
            // distance = Mathf.Clamp(distance, minDistanceZoom, maxDistanceZoom - 0.5f);
 

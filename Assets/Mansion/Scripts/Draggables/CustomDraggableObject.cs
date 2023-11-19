@@ -52,6 +52,11 @@ namespace HFPS.Systems
             base.OnRigidbodyRelease();
             hasBeenGrabbed = true;
             itemRigidbody.freezeRotation = false;
+
+            if (canBePlaced)
+            {
+                ToysManager.Instance.TryPlaceToy(this);
+            }
         }
 
         protected virtual void OnCollisionEnter(Collision collision)

@@ -1093,11 +1093,20 @@ namespace HFPS.Systems
         /// <summary>
         /// Show Sprites for Draggable Object
         /// </summary>
-        public void ShowGrabSprites()
+        public void ShowGrabSprites(bool canRotate = true, bool canThrow = true)
         {
             SetKey(helpUI.HelpButton1.transform, bindPath_Grab, PutAwayText);
-            SetKey(helpUI.HelpButton2.transform, bindPath_Rotate, RotateText);
-            SetKey(helpUI.HelpButton3.transform, bindPath_Throw, ThrowText);
+
+            if (canRotate)
+                SetKey(helpUI.HelpButton2.transform, bindPath_Rotate, RotateText);
+            else
+                helpUI.HelpButton2.SetActive(false);
+
+            if (canThrow)
+                SetKey(helpUI.HelpButton3.transform, bindPath_Throw, ThrowText);
+            else
+                helpUI.HelpButton3.SetActive(false);
+
             helpUI.HelpButton4.SetActive(false);
             gamePanels.HelpKeysPanel.SetActive(true);
         }

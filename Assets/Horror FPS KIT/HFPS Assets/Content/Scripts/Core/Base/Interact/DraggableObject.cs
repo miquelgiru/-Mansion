@@ -28,6 +28,9 @@ namespace HFPS.Systems
         public bool dragAndUse = false;
         public bool automaticDistance = true;
         public Vector3 dragScale;
+        public bool disableOtherInteraction = true;
+        public bool rotateOnDrag = true;
+        public bool throwOnDrag = true;
 
         [Header("Drag Sounds")]
         public DragSoundType soundType = DragSoundType.None;
