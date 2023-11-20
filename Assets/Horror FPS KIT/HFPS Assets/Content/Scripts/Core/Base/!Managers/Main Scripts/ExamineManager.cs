@@ -892,7 +892,7 @@ namespace HFPS.Player
             gameManager.HideSprites(1);
             gameManager.ShowConsoleCursor(false);
             gameManager.isExamining = false;
-            scriptManager.IsExamineRaycast = false;
+            scriptManager.IsExamineRaycast = false; 
             firstExamine.isExamining = false;
             firstExamine.floatingIcon = floatingIconEn;
             floatingItem.SetAllIconsVisible(true);
@@ -914,6 +914,11 @@ namespace HFPS.Player
             faceToCameraFirst = false;
             faceToCameraSecond = false;
             faceToCameraInspect = false;
+
+
+            //TriggerAction action = objectHeld.GetComponent<TriggerAction>();
+            //if (action != null) action.OnTriggerAction();
+            objectHeld.GetComponent<TriggerAction>()?.OnTriggerAction();
 
             firstExamine = null;
             priorityObject = null;

@@ -42,7 +42,7 @@ namespace HFPS.Systems
         #endregion
 
         #region DoorSettings
-        [HideInInspector] public bool isOpened;
+        [HideInInspector] public bool isOpened = false;
         [HideInInspector] public float toPlayerAngle;
         #endregion
 
@@ -178,6 +178,7 @@ namespace HFPS.Systems
                 if (dynamicType == Type_Dynamic.Door || dynamicType == Type_Dynamic.Drawer || dynamicType == Type_Dynamic.Lever)
                 {
                     m_openclose.ObjectClicked();
+                    isOpened = !isOpened;
                  
                 }
             }
@@ -321,6 +322,16 @@ namespace HFPS.Systems
 
 
             }
+        }
+
+        public void LockDoor(bool lockdoor)
+        {
+            if (lockdoor)
+            {
+                if (isOpened)
+                    UseObject();
+            }
+            isLocked = lockdoor;
         }
     }
 }

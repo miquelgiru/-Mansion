@@ -63,8 +63,11 @@ namespace HFPS.Player
         [HideInInspector]
         public Quaternion playerOriginalRotation;
 
+        public static MouseLook Instance;
+
         void Awake()
         {
+            Instance = this;
             player = transform.root.gameObject;
 
             OptionsController.OnOptionsUpdated += OnOptionsUpdated;

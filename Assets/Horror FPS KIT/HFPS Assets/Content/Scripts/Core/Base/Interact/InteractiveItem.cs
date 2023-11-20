@@ -297,6 +297,8 @@ namespace HFPS.Systems
             {
                 FloatingIconManager.Instance.DestroySafely(gameObject);
             }
+
+            GetComponent<TriggerAction>()?.OnTriggerAction();
         }
 
         public void DisableObject()

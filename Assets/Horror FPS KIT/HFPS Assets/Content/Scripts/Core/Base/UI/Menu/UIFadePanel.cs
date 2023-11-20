@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using ThunderWire.Helpers;
+using ThunderWire.Input;
 
 namespace HFPS.UI
 {
@@ -47,6 +48,8 @@ namespace HFPS.UI
         public void FadeIn(bool signalFadeOut)
         {
             FadeImage.raycastTarget = true;
+            InputHandler.BlockAllInput(true);
+
 
             fader.Fade(new Fader.FadeSettings()
             {
@@ -65,6 +68,7 @@ namespace HFPS.UI
         public void FadeOut()
         {
             FadeImage.raycastTarget = false;
+            InputHandler.BlockAllInput(false);
 
             fader.Fade(new Fader.FadeSettings()
             {

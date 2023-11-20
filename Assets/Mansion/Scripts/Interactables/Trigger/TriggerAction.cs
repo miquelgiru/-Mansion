@@ -11,11 +11,12 @@ public class ActionData
     public TriggerAction.ActionType Type;
     public GameObject asociatedGO;
     public float waitTimeAfterAction = 0;
+    public string GameManagerMethodKey;
 }
 
 public class TriggerAction : MonoBehaviour
 {
-    public enum ActionType { ACTIVATE_OBJECT, DEACTIVATE_OBJECT, JUMP_SCARE, FADE_IN, FADE_OUT, LOCKDOOR, UNLOCKDOOR}
+    public enum ActionType { ACTIVATE_OBJECT, DEACTIVATE_OBJECT, JUMP_SCARE, FADE_IN, FADE_OUT, LOCKDOOR, UNLOCKDOOR, GAMEMANAGER}
 
     [SerializeField] private ActionData[] actions;
     public bool RemoveComponentAfterTrigger;
@@ -58,7 +59,13 @@ public class TriggerAction : MonoBehaviour
                 UIFadePanel.Instance.FadeOut();
                 break;
             case ActionType.LOCKDOOR:
-                action.asociatedGO.GetComponent<DynamicObjectAnimator>().isLocked = true;
+                action.asociatedGO.GetComponent<DynamicObjectAnimator>().LockDoor(true);
+                break;
+            case ActionType.UNLOCKDOOR:
+                action.asociatedGO.GetComponent<DynamicObjectAnimator>().LockDoor(false);
+                break;
+            case ActionType.GAMEMANAGER:
+                GameManager.Instance.CallMethod(action.GameManagerMethodKey);
                 break;
         }
 

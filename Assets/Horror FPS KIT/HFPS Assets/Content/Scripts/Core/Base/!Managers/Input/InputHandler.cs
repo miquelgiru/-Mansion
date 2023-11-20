@@ -19,6 +19,7 @@ using UnityEngine.InputSystem.DualShock;
 using UnityEngine.InputSystem.XInput;
 using ThunderWire.Utility;
 using ThunderWire.Helpers;
+using HFPS.Player;
 
 namespace ThunderWire.Input
 {
@@ -167,6 +168,8 @@ namespace ThunderWire.Input
         private int prefsInputDevice = 0;
         private Device activeDevice = Device.None;
         private bool isReaded = false;
+
+        public static bool BlockInput = false;
 
         void OnEnable()
         {
@@ -480,11 +483,14 @@ namespace ThunderWire.Input
         /// </summary>
         public static object ReadInput(string ActionName, string ActionMap = "Default")
         {
-            InputAction inputAction = GetInputAction(ActionName, ActionMap);
-
-            if (inputAction != null)
+            if (!BlockInput)
             {
-                return inputAction.ReadValueAsObject();
+                InputAction inputAction = GetInputAction(ActionName, ActionMap);
+
+                if (inputAction != null)
+                {
+                    return inputAction.ReadValueAsObject();
+                }
             }
 
             return default;
@@ -900,6 +906,12 @@ namespace ThunderWire.Input
                     if (Instance.debugMode) Debug.Log("[Input] Changes Applied.");
                 }
             }
+        }
+
+        public static void BlockAllInput(bool input)
+        {
+            BlockInput = input;
+            MouseLook.Instance.LockLook(input);
         }
 
         string FormatBindingPath(string bindingPath)

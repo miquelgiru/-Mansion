@@ -40,8 +40,9 @@ public class ToysManager : MonoBehaviour
             placer.isEmpty = false;
             placer.CurrentToy = toy;
             toy.transform.position = placer.transform.position;
-            toy.transform.rotation = Quaternion.identity;
+            toy.transform.rotation = placer.transform.rotation;
             toy.gameObject.layer = 0;
+            placedToys.Remove(toy);
         }
     }
 
@@ -78,7 +79,7 @@ public class ToysManager : MonoBehaviour
 
         CustomDraggableObject ret = null;
         ret = availableToys[Random.Range(0, availableToys.Count)];
-      
+        placedToys.Add(ret);
         return ret;
     }
 

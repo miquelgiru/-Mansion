@@ -351,7 +351,7 @@ namespace HFPS.Player
                 return;
             }
 
-            if (InputHandler.InputIsInitialized && !isPauseMenu)
+            if (InputHandler.InputIsInitialized && !isPauseMenu && !InputHandler.BlockInput)
             {
                 inputDevice = InputHandler.CurrentDevice;
                 ZoomPressed = InputHandler.ReadButton("Zoom");
